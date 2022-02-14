@@ -1,0 +1,31 @@
+@import "./variables.scss";
+.login-container {
+  position: relative;
+  height: 100vh;
+  @include flex-center();
+}
+.video-container {
+  height: 100%;
+  width: 100%;
+}
+.video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  @include flex-center();
+}
+.login-logo {
+  font-size: 50px;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  opacity: 0.9;
+}

@@ -1,0 +1,52 @@
+@import "./variables.scss";
+.register-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+}
+.register-form input {
+  border: none;
+  padding: 5px;
+  outline: none;
+  width: 160px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+.register-form input::placeholder {
+  color: #9b9b9b;
+}
+
+.register-form button {
+  align-self: center;
+  border: none;
+  padding: 5px;
+  outline: none;
+  color: #9b9b9b;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+.register-form button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.feedback {
+  margin-top: 10px;
+  color: #f8f1f1;
+  font-size: 15px;
+}
+.feedback p {
+  margin: 5px;
+}
+.back-login {
+  padding-top: 10px;
+  text-align: end;
+  color: aliceblue;
+  font-size: 14px;
+  opacity: 0.7;
+}
+.back-login:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}

@@ -1,0 +1,41 @@
+.search-bar-component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search-bar-component div {
+  margin-right: 10px;
+}
+
+.search-bar-component select {
+  border-radius: 10px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  padding: 5px;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: medium;
+  border: 1px solid #000000;
+}
+
+.search-bar-component input {
+  border-radius: 10px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  padding: 5px;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: medium;
+  border: 1px solid #000000;
+}
+
+select:invalid {
+  color: #757575;
+}
+
+select {
+  -webkit-appearance: menulist-button;
+  color: black;
+}
+/*# sourceMappingURL=SeachBar.css.map */

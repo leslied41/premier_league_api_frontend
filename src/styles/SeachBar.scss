@@ -1,0 +1,24 @@
+@import "./variables.scss";
+
+.search-bar-component {
+  display: flex;
+  div {
+    margin-right: 10px;
+  }
+
+  select {
+    @include input();
+    border: 1px solid #000000;
+  }
+  input {
+    @include input();
+    border: 1px solid #000000;
+  }
+}
+select:invalid {
+  color: #757575;
+}
+select {
+  -webkit-appearance: menulist-button;
+  color: black;
+}
