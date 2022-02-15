@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# INFO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Visitors can register new user in the register/login page, but any resitered user's role will be automatically set as user. Newly registered user can ony browse teams info and sort and search certan teams. Registered user's role can be changed in MongoDB.
+
+Only the admin user can add, edit and delete teams in dashboard page.
+admin user:admin@admin.com password:123456
 
 ## Available Scripts
 
