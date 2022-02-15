@@ -25,9 +25,12 @@ const SearchBar = ({ setteams }) => {
       if (sort_by) {
         try {
           axios
-            .get(`http://localhost:5000/api/teams/query?${sort_url}`, {
-              withCredentials: true,
-            })
+            .get(
+              `${process.env.REACT_APP_BASE_URL}/api/teams/query?${sort_url}`,
+              {
+                withCredentials: true,
+              }
+            )
             .then((res) => {
               const teams = res.data;
               setteams(teams);
@@ -43,7 +46,7 @@ const SearchBar = ({ setteams }) => {
     try {
       axios
         .get(
-          `http://localhost:5000/api/teams/query?${filter_item}=${search_content}${sort_url}`,
+          `${process.env.REACT_APP_BASE_URL}/api/teams/query?${filter_item}=${search_content}${sort_url}`,
           { withCredentials: true }
         )
         .then((res) => {

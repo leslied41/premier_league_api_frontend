@@ -31,9 +31,14 @@ const Loginform = () => {
     };
     axios.defaults.withCredentials = true;
     axios
-      .post("http://localhost:5000/login", user, { withCredentials: true })
+      .post(`${process.env.REACT_APP_BASE_URL}/login`, user, {
+        withCredentials: true,
+      })
       .then(function (response) {
         console.log(response);
+        const access_token = response.data.token;
+        //cookies.set("access-token", access_token);
+        //setCookie("access-token", access_token);
         navigate("/dashboard");
       })
       .catch(function (error) {

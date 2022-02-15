@@ -29,7 +29,7 @@ const Register = ({ show_register, setshow_register }) => {
       password: password,
     };
     axios
-      .post("http://localhost:5000/register", new_user, {
+      .post(`${process.env.REACT_APP_BASE_URL}/register`, new_user, {
         withCredentials: true,
       })
       .then(function (response) {

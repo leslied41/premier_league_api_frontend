@@ -26,7 +26,9 @@ const Dashboard = () => {
     //console.log("fecth data");
     try {
       axios
-        .get("http://localhost:5000/api/teams", { withCredentials: true })
+        .get(`${process.env.REACT_APP_BASE_URL}/api/teams`, {
+          withCredentials: true,
+        })
         .then((res) => {
           const teams = res.data.teams;
           setteams(teams);
@@ -40,7 +42,7 @@ const Dashboard = () => {
   }, [update, editing]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/", { withCredentials: true })
+      .get(`${process.env.REACT_APP_BASE_URL}/api/`, { withCredentials: true })
       .then((res) => {
         console.log(res);
       })
@@ -53,7 +55,7 @@ const Dashboard = () => {
   }, []);
   const deleteoneTeam = (id) => {
     axios
-      .delete(`http://localhost:5000/api/teams/delete/${id}`, {
+      .delete(`${process.env.REACT_APP_BASE_URL}/api/teams/delete/${id}`, {
         withCredentials: true,
       })
       .then(() => {
@@ -104,7 +106,7 @@ const Dashboard = () => {
     );
     axios
       .patch(
-        `http://localhost:5000/api/teams/update/${id}`,
+        `${process.env.REACT_APP_BASE_URL}/api/teams/update/${id}`,
         {
           name: team_name ? team_name : name,
           founded: team_founded ? team_founded : founded,

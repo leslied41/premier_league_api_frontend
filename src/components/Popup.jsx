@@ -16,7 +16,7 @@ const Popup = ({ setopen_popup, setupdate }) => {
     }
     axios
       .post(
-        `http://localhost:5000/api/teams/add`,
+        `${process.env.REACT_APP_BASE_URL}/api/teams/add`,
         {
           name: name,
           founded: founded,
