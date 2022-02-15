@@ -10,6 +10,8 @@ const Popup = ({ setopen_popup, setupdate }) => {
   const [value, setvalue] = useState("");
   const [show_feedback, setshow_feedback] = useState(false);
   const handleSubmit = () => {
+    const token = localStorage.getItem("token");
+
     if (!name || !founded || !value || !venue || !manager) {
       //console.log("no null value input");
       return;
@@ -24,7 +26,11 @@ const Popup = ({ setopen_popup, setupdate }) => {
           manager: manager,
           venue: venue,
         },
-        { withCredentials: true }
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       )
       .then((res) => {
         console.log(res);

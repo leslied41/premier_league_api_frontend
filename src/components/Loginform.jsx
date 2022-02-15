@@ -31,12 +31,11 @@ const Loginform = () => {
     };
     axios.defaults.withCredentials = true;
     axios
-      .post(`${process.env.REACT_APP_BASE_URL}/login`, user, {
-        withCredentials: true,
-      })
+      .post(`${process.env.REACT_APP_BASE_URL}/login`, user)
       .then(function (response) {
         console.log(response);
-        const access_token = response.data.token;
+        localStorage.setItem("token", response.data.token);
+        //const access_token = response.data.token;
         //cookies.set("access-token", access_token);
         //setCookie("access-token", access_token);
         navigate("/dashboard");

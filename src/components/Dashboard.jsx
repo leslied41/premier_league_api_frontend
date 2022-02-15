@@ -24,10 +24,13 @@ const Dashboard = () => {
   const [user, setuser] = useState(false);
   useEffect(() => {
     //console.log("fecth data");
+    const token = localStorage.getItem("token");
     try {
       axios
         .get(`${process.env.REACT_APP_BASE_URL}/api/teams`, {
-          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         })
         .then((res) => {
           const teams = res.data.teams;
@@ -41,8 +44,14 @@ const Dashboard = () => {
     }
   }, [update, editing]);
   useEffect(() => {
+    const token = localStorage.getItem("token");
+
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/api/`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_BASE_URL}/api/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         console.log(res);
       })
@@ -54,9 +63,13 @@ const Dashboard = () => {
       });
   }, []);
   const deleteoneTeam = (id) => {
+    const token = localStorage.getItem("token");
+
     axios
       .delete(`${process.env.REACT_APP_BASE_URL}/api/teams/delete/${id}`, {
-        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
       .then(() => {
         console.log("delete successful");
@@ -101,6 +114,8 @@ const Dashboard = () => {
     //console.log(team_venue);
   };
   const updateTeam = (id) => {
+    const token = localStorage.getItem("token");
+
     const { name, manager, founded, venue, teamValue } = teams.find(
       (team) => team.id == id
     );
@@ -114,7 +129,11 @@ const Dashboard = () => {
           manager: team_manager ? team_manager : manager,
           venue: team_venue ? team_venue : venue,
         },
-        { withCredentials: true }
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       )
       .then((res) => {
         //console.log(res);

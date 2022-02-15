@@ -20,6 +20,8 @@ const SearchBar = ({ setteams }) => {
     //     console.log(error);
     //   }
     // }
+    const token = localStorage.getItem("token");
+
     const sort_url = !sort_by ? "" : `&sort=${sort_by}`;
     if (!filter_item) {
       if (sort_by) {
@@ -27,8 +29,11 @@ const SearchBar = ({ setteams }) => {
           axios
             .get(
               `${process.env.REACT_APP_BASE_URL}/api/teams/query?${sort_url}`,
+
               {
-                withCredentials: true,
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
               }
             )
             .then((res) => {
@@ -47,7 +52,11 @@ const SearchBar = ({ setteams }) => {
       axios
         .get(
           `${process.env.REACT_APP_BASE_URL}/api/teams/query?${filter_item}=${search_content}${sort_url}`,
-          { withCredentials: true }
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         )
         .then((res) => {
           const teams = res.data;
