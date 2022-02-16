@@ -9,7 +9,8 @@ const Popup = ({ setopen_popup, setupdate }) => {
   const [venue, setvenue] = useState("");
   const [value, setvalue] = useState("");
   const [show_feedback, setshow_feedback] = useState(false);
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const token = localStorage.getItem("token");
 
     if (!name || !founded || !value || !venue || !manager) {

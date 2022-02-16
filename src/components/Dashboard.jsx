@@ -6,6 +6,7 @@ import { BiPlus } from "react-icons/bi";
 import Popup from "./Popup";
 import SearchBar from "./SearcchBar";
 import PopupDel from "./PopupDel";
+import RoleAlert from "./RoleAlert";
 
 const Dashboard = () => {
   const [teams, setteams] = useState([]);
@@ -14,6 +15,7 @@ const Dashboard = () => {
   const [isEditing, setisEditing] = useState(false);
   const [del_popup, setdel_popup] = useState(false);
   const [del_team_id, setdel_team_id] = useState();
+  const [show_role_alert, setshow_role_alert] = useState(false);
   //teamarea
   const [team_name, setteam_name] = useState();
   const [team_value, setteam_value] = useState();
@@ -34,6 +36,7 @@ const Dashboard = () => {
         })
         .then((res) => {
           const teams = res.data.teams;
+          console.log(teams);
           setteams(teams);
         })
         .catch((err) => {
@@ -42,7 +45,7 @@ const Dashboard = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [update, editing]);
+  }, [update]);
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -81,6 +84,7 @@ const Dashboard = () => {
   };
   const addNewTeam = () => {
     if (user) {
+      setshow_role_alert(true);
       return;
     }
     console.log("add new team");
@@ -136,8 +140,9 @@ const Dashboard = () => {
         }
       )
       .then((res) => {
-        //console.log(res);
+        console.log(res);
         setediting({});
+        setupdate(new Date().getTime().toString());
       })
       .catch((err) => console.log(err));
 
@@ -151,6 +156,9 @@ const Dashboard = () => {
     <>
       <div className="heading">Premier League API Dashboard</div>
       <div className="main">
+        {show_role_alert && (
+          <RoleAlert setshow_role_alert={setshow_role_alert} />
+        )}
         {open_popup && (
           <div>
             <Popup setopen_popup={setopen_popup} setupdate={setupdate} />
@@ -256,6 +264,10 @@ const Dashboard = () => {
                   <div
                     className="tool-icon"
                     onClick={() => {
+                      if (user) {
+                        setshow_role_alert(true);
+                        return;
+                      }
                       //deleteoneTeam(id);
                       setdel_popup(true);
                       setdel_team_id(id);
@@ -266,6 +278,10 @@ const Dashboard = () => {
                   <div
                     className="tool-icon"
                     onClick={() => {
+                      if (user) {
+                        setshow_role_alert(true);
+                        return;
+                      }
                       if (!isEditing) {
                         editTeam(id);
                         setisEditing(true);

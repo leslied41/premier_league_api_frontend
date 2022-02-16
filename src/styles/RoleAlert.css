@@ -1,0 +1,25 @@
+.role-alert-container {
+  background-color: black;
+  color: aliceblue;
+  border-radius: 5px;
+  width: 400px;
+  padding: 20px;
+  -webkit-box-shadow: 5px 5px 5px #474747;
+          box-shadow: 5px 5px 5px #474747;
+}
+
+.btns button {
+  border: none;
+  border-radius: 15px;
+  padding: 5px;
+  font-size: large;
+  font-weight: bold;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.btns button:hover {
+  opacity: 0.7;
+}
+/*# sourceMappingURL=RoleAlert.css.map */
