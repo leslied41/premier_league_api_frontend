@@ -1,7 +1,11 @@
-.search-bar-component {
+.search-bar-component form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .search-bar-component div {
@@ -37,5 +41,20 @@ select:invalid {
 select {
   -webkit-appearance: menulist-button;
   color: black;
+}
+
+button {
+  border: none;
+  border-radius: 15px;
+  padding: 5px;
+  font-size: large;
+  font-weight: bold;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.7;
 }
 /*# sourceMappingURL=SeachBar.css.map */

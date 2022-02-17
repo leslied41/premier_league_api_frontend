@@ -1,7 +1,10 @@
 @import "./variables.scss";
 
 .search-bar-component {
-  display: flex;
+  form {
+    display: flex;
+    flex-direction: row;
+  }
   div {
     margin-right: 10px;
   }
@@ -21,4 +24,17 @@ select:invalid {
 select {
   -webkit-appearance: menulist-button;
   color: black;
+}
+button {
+  border: none;
+  border-radius: 15px;
+  padding: 5px;
+  font-size: large;
+  font-weight: bold;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.7;
 }
