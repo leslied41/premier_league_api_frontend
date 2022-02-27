@@ -9,7 +9,7 @@ const RoleAlert = ({ setshow_role_alert }) => {
           account.
         </div>
         <div>
-          <p>email: user@user.com</p>
+          <p>email: admin@admin.com</p>
           <p>password: 123456</p>
         </div>
         <div className="btns">
