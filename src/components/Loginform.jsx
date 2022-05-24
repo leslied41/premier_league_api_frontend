@@ -10,6 +10,7 @@ const Loginform = () => {
   const [passwpord, setpasswpord] = useState("");
   const [no_user, setno_user] = useState(false);
   const [wrong_password, setwrong_password] = useState(false);
+  const [state, setstate] = useState(false);
   const handleChange = (e) => {
     console.log(e.target.type);
     const value = e.target.value;
@@ -39,6 +40,8 @@ const Loginform = () => {
         //cookies.set("access-token", access_token);
         //setCookie("access-token", access_token);
         navigate("/dashboard");
+        setstate(!state);
+        window.location.reload();
       })
       .catch(function (error) {
         console.log(error.response);
