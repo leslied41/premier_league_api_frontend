@@ -15,6 +15,11 @@ function App() {
       redirected to dashboarad page. Otherwise, the page should remain in login page
       {login ? <Redirect to="/dashboard" /> : <Home />}
       */}
+      {/* now for the latest version of react router dom v6, the methond above has been deprecated.
+      Current correct way is like this:
+      <Route exact path="/"  element={!logged ? <Navigate replace to="/signin" /> : <Dashboard />}/>
+      */}
+        
     </Router>
   );
 }
