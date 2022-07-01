@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
 import "./App.css";
 import Home from "./components/Home";
@@ -9,7 +14,10 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        {login && <Route path="/dashboard" element={<Dashboard />} />}
+        <Route
+          path="/dashboard"
+          element={!login ? <Navigate replace to="/" /> : <Dashboard />}
+        />
       </Routes>
       {/* the correct way is to use redirect, when there is token, the page would be 
       redirected to dashboarad page. Otherwise, the page should remain in login page
@@ -19,7 +27,6 @@ function App() {
       Current correct way is like this:
       <Route exact path="/"  element={!logged ? <Navigate replace to="/signin" /> : <Dashboard />}/>
       */}
-        
     </Router>
   );
 }

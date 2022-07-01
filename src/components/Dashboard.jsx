@@ -7,8 +7,10 @@ import Popup from "./Popup";
 import SearchBar from "./SearcchBar";
 import PopupDel from "./PopupDel";
 import RoleAlert from "./RoleAlert";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [teams, setteams] = useState([]);
   const [update, setupdate] = useState();
   const [editing, setediting] = useState({});
@@ -152,9 +154,18 @@ const Dashboard = () => {
     setteam_value();
     setteam_name();
   };
+  const handleLogOut = () => {
+    navigate("/");
+    localStorage.removeItem("token");
+  };
   return (
     <>
-      <div className="heading">Premier League API Dashboard</div>
+      <div className="heading">
+        Premier League API Dashboard{" "}
+        <button className="logout" onClick={handleLogOut}>
+          Log Out
+        </button>
+      </div>
       <div className="main">
         {show_role_alert && (
           <RoleAlert setshow_role_alert={setshow_role_alert} />

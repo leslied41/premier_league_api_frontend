@@ -4,12 +4,12 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   margin-top: 20px;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .register-form input {
@@ -40,8 +40,8 @@
 
 .register-form button {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   border: none;
   padding: 5px;
   outline: none;
@@ -71,6 +71,7 @@
   color: aliceblue;
   font-size: 14px;
   opacity: 0.7;
+  width: 100%;
 }
 
 .back-login:hover {

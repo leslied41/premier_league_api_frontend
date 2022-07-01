@@ -3,6 +3,7 @@ import "../styles/Register.css";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const Loginform = () => {
   const navigate = useNavigate();
@@ -10,7 +11,8 @@ const Loginform = () => {
   const [passwpord, setpasswpord] = useState("");
   const [no_user, setno_user] = useState(false);
   const [wrong_password, setwrong_password] = useState(false);
-  const [state, setstate] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     console.log(e.target.type);
     const value = e.target.value;
@@ -25,6 +27,7 @@ const Loginform = () => {
     e.preventDefault();
     setno_user(false);
     setwrong_password(false);
+    setLoading(true);
 
     const user = {
       email: email,
@@ -40,7 +43,7 @@ const Loginform = () => {
         //cookies.set("access-token", access_token);
         //setCookie("access-token", access_token);
         navigate("/dashboard");
-        setstate(!state);
+        setLoading(false);
         window.location.reload();
       })
       .catch(function (error) {
@@ -76,6 +79,7 @@ const Loginform = () => {
             required
           />
         </label>
+        <BeatLoader loading={loading} size={15} />
         <button type="submit">Login</button>
         {no_user && (
           <div className="feedback">
